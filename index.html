@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng Tạo Phiếu Dự Giờ AI (Mẫu Mới)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif; /* Changed font for official document look */
+        }
+
+        .app-container {
+             font-family: 'Inter', sans-serif; /* Keep modern font for UI */
+        }
+
+        .ai-button {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .ai-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Smaller loader for inline buttons */
+        .loader.inline-loader {
+            width: 16px;
+            height: 16px;
+            border-width: 2px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        table, th, td {
+            border: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 p-4 sm:p-6 md:p-8">
+
+    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 app-container">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600">Phiếu Dự Giờ Thông Minh (Mẫu Mới)</h1>
+            <p class="text-gray-500 mt-2">Tạo và xuất phiếu dự giờ theo mẫu chuẩn với sự hỗ trợ từ AI</p>
+        </div>
+
+        <!-- Thông tin chung -->
+        <div class="border-b pb-8 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">A. Thông tin chung</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="governing-body" class="block text-sm font-medium text-gray-700 mb-1">Cơ quan chủ quản (VD: UBND HUYỆN THẠNH TRỊ)</label>
+                    <input type="text" id="governing-body" value="UBND HUYỆN THẠNH TRỊ" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="school-unit" class="block text-sm font-medium text-gray-700 mb-1">Đơn vị (VD: TRƯỜNG THCS PHÚ LỘC 2)</label>
+                    <input type="text" id="school-unit" value="TRƯỜNG THCS PHÚ LỘC 2" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="teacherName" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên giáo viên</label>
+                    <input type="text" id="teacherName" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                 <div>
+                    <label for="lessonName" class="block text-sm font-medium text-gray-700 mb-1">Tên bài dạy (chủ đề)</label>
+                    <input type="text" id="lessonName" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Môn học</label>
+                    <input type="text" id="subject" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="className" class="block text-sm font-medium text-gray-700 mb-1">Lớp</label>
+                    <input type="text" id="className" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="lesson-period" class="block text-sm font-medium text-gray-700 mb-1">Tiết (theo PPCT)</label>
+                    <input type="text" id="lesson-period" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                 <div>
+                    <label for="lesson-date" class="block text-sm font-medium text-gray-700 mb-1">Ngày dạy</label>
+                    <input type="date" id="lesson-date" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="attendee-name" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên người dự</label>
+                    <input type="text" id="attendee-name" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label for="attendee-unit" class="block text-sm font-medium text-gray-700 mb-1">Đơn vị công tác người dự</label>
+                    <input type="text" id="attendee-unit" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </div>
+        </div>
+        
+        <!-- NEW FEATURE: PowerPoint Analysis -->
+        <div class="border-b pb-8 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">E. Hỗ trợ từ AI với tệp PowerPoint</h2>
+            <div class="bg-blue-50 p-6 rounded-lg">
+                <p class="text-sm text-gray-600 mb-4">Tải lên tệp bài giảng (.pptx) để AI trích xuất nội dung, sau đó bạn có thể dùng AI để điền tự động vào các hoạt động hoặc nhận xét tổng quan.</p>
+                <div class="flex items-center gap-4 mb-4">
+                    <input type="file" id="ppt-upload" accept=".pptx" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-100 file:text-blue-700 hover:file:bg-blue-200"/>
+                    <button id="extract-ppt-btn" class="flex-shrink-0 flex items-center gap-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg ai-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                        Trích xuất nội dung
+                    </button>
+                </div>
+                 <p id="ppt-status" class="text-sm text-center text-gray-600 h-5"></p>
+                <div class="mt-4">
+                    <button id="ai-overview-ppt-btn" class="flex items-center gap-2 bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg ai-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                        AI Nhận xét tổng quan bài giảng
+                    </button>
+                    <label for="ppt-analysis-result" class="block text-sm font-medium text-gray-700 mb-1 mt-4">Kết quả nhận xét tổng quan từ AI:</label>
+                    <textarea id="ppt-analysis-result" rows="8" class="w-full p-3 border border-gray-300 rounded-md shadow-sm bg-gray-50" readonly placeholder="Kết quả nhận xét tổng quan của AI sẽ được hiển thị ở đây..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hoạt động của giáo viên và học sinh -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">B. Tiến trình hoạt động dạy và học</h2>
+            <div id="activities-container" class="space-y-6">
+                <!-- Activity rows will be added here by JavaScript -->
+            </div>
+            <button id="add-activity-btn" class="mt-6 flex items-center gap-2 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" /></svg>
+                Thêm hoạt động
+            </button>
+        </div>
+
+        <!-- Bảng tiêu chí đánh giá -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">C. Đánh giá tiết học</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg">
+                    <thead class="bg-gray-50">
+                        <!-- Header will be generated by JS -->
+                    </thead>
+                    <tbody id="evaluation-table-body">
+                        <!-- Evaluation criteria will be added here -->
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-gray-100 font-semibold">
+                            <td colspan="4" class="py-3 px-4 text-right">Tổng điểm:</td>
+                            <td id="total-score" class="py-3 px-4 text-center text-lg">0/100</td>
+                        </tr>
+                        <tr class="bg-gray-100 font-semibold">
+                            <td colspan="4" class="py-3 px-4 text-right">Xếp loại:</td>
+                            <td id="rating" class="py-3 px-4 text-center text-lg">Chưa đạt</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+
+        <!-- Nhận xét chung và Góp ý -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">D. Nhận xét chung và góp ý</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="strengths" class="block text-sm font-medium text-gray-700 mb-1">Ưu điểm</label>
+                    <textarea id="strengths" rows="4" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <div>
+                    <label for="weaknesses" class="block text-sm font-medium text-gray-700 mb-1">Hạn chế</label>
+                    <textarea id="weaknesses" rows="4" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+                <div>
+                    <label for="suggestions" class="block text-sm font-medium text-gray-700 mb-1">Góp ý</label>
+                    <textarea id="suggestions" rows="4" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+            </div>
+            <button id="ai-overall-review-btn" class="mt-6 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg ai-button">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                AI Tổng hợp Nhận xét
+            </button>
+        </div>
+
+        <!-- Chức năng -->
+        <div class="text-center pt-8 border-t">
+            <button id="export-docx-btn" class="bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-xl hover:bg-green-700 transition-transform transform hover:scale-105">
+                Xuất ra file DOCX
+            </button>
+        </div>
+    </div>
+    
+    <!-- Libraries -->
+    <script src="https://unpkg.com/docx@7.3.0/build/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- Library for reading .pptx files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+
+    <script type="module">
+        // --- Gemini API Call ---
+        const GEMINI_API_KEY = 'AIzaSyBwZ71EnXJ0R2PPR1xc8EIDKHeZGWmuzkk';
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+        
+        async function callGeminiApi(prompt) {
+             if (GEMINI_API_KEY === 'YOUR_API_KEY') {
+                 return "Lỗi: Vui lòng thay thế 'YOUR_API_KEY' trong mã nguồn bằng khóa API Gemini thực tế của bạn để sử dụng tính năng AI.";
+             }
+             console.log("Calling Gemini API...");
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+                if (!response.ok) {
+                    const errorBody = await response.json();
+                    throw new Error(`API request failed: ${errorBody.error.message}`);
+                }
+                const data = await response.json();
+                if (data.candidates?.[0]?.content?.parts?.[0]) {
+                    return data.candidates[0].content.parts[0].text;
+                }
+                if (data.candidates?.[0]?.finishReason === 'SAFETY') {
+                    return "Phản hồi từ AI đã bị chặn vì lý do an toàn.";
+                }
+                return "Không nhận được nội dung hợp lệ từ AI.";
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                return `Lỗi kết nối với AI: ${error.message}.`;
+            }
+        }
+        
+        // --- Global State ---
+        let activityCounter = 0;
+        let pptTextContent = null;
+        
+        // --- DOM Elements ---
+        const elements = {
+            activitiesContainer: document.getElementById('activities-container'),
+            addActivityBtn: document.getElementById('add-activity-btn'),
+            evaluationTableBody: document.getElementById('evaluation-table-body'),
+            totalScoreEl: document.getElementById('total-score'),
+            ratingEl: document.getElementById('rating'),
+            aiOverallReviewBtn: document.getElementById('ai-overall-review-btn'),
+            strengthsEl: document.getElementById('strengths'),
+            weaknessesEl: document.getElementById('weaknesses'),
+            suggestionsEl: document.getElementById('suggestions'),
+            exportDocxBtn: document.getElementById('export-docx-btn'),
+            // PPT elements
+            pptUpload: document.getElementById('ppt-upload'),
+            extractPptBtn: document.getElementById('extract-ppt-btn'),
+            aiOverviewPptBtn: document.getElementById('ai-overview-ppt-btn'),
+            pptAnalysisResult: document.getElementById('ppt-analysis-result'),
+            pptStatus: document.getElementById('ppt-status'),
+        };
+        
+        // --- Data Structure for Evaluation ---
+        const evaluationCriteria = [
+            {
+                category: "1. Kế hoạch bài dạy",
+                items: [
+                    { noidung: "Mức độ phù hợp của chuỗi hoạt động học với mục tiêu, nội dung, phương pháp dạy học được sử dụng.", yeucau: "Phù hợp với mục tiêu, nội dung và đối tượng học sinh; thể hiện rõ vai trò của giáo viên và học sinh.", diem_max: 10 },
+                    { noidung: "Mức độ rõ ràng của mục tiêu, nội dung, kĩ thuật tổ chức và sản phẩm cần đạt được của mỗi nhiệm vụ học tập.", yeucau: "Mục tiêu, nội dung, sản phẩm học tập của mỗi nhiệm vụ cụ thể, rõ ràng.", diem_max: 10 },
+                    { noidung: "Mức độ phù hợp của thiết bị dạy học và học liệu được sử dụng để tổ chức các hoạt động học của học sinh.", yeucau: "Thiết bị dạy học, học liệu phù hợp với hoạt động học; học sinh dễ dàng sử dụng.", diem_max: 10 },
+                ]
+            },
+            {
+                category: "2. Hoạt động của giáo viên",
+                items: [
+                    { noidung: "Khả năng tạo hứng thú, thu hút học sinh tham gia vào các hoạt động học tập.", yeucau: "Tạo được hứng thú, thu hút học sinh vào hoạt động học.", diem_max: 10 },
+                    { noidung: "Mức độ linh hoạt trong việc quan sát, theo dõi, bao quát, phát hiện kịp thời những khó khăn của học sinh.", yeucau: "Quan sát, bao quát lớp tốt, phát hiện và hỗ trợ học sinh kịp thời.", diem_max: 10 },
+                    { noidung: "Mức độ chính xác, hiệu quả trong việc tổng hợp, phân tích, đánh giá quá trình và kết quả học tập của học sinh.", yeucau: "Nhận xét, đánh giá đúng trọng tâm, làm rõ được vấn đề.", diem_max: 10 },
+                ]
+            },
+            {
+                category: "3. Hoạt động của học sinh",
+                items: [
+                    { noidung: "Khả năng tiếp nhận và sẵn sàng thực hiện nhiệm vụ học tập của học sinh trong lớp.", yeucau: "Học sinh tiếp nhận nhiệm vụ nhanh chóng, sẵn sàng thực hiện.", diem_max: 10 },
+                    { noidung: "Mức độ tích cực, chủ động, sáng tạo, hợp tác của học sinh trong việc thực hiện các nhiệm vụ học tập.", yeucau: "Học sinh tích cực, chủ động, hợp tác hiệu quả.", diem_max: 10 },
+                    { noidung: "Mức độ tham gia tích cực của học sinh trong trình bày, thảo luận về kết quả thực hiện nhiệm vụ học tập.", yeucau: "Học sinh tham gia trình bày, thảo luận sôi nổi, tự tin.", diem_max: 10 },
+                    { noidung: "Mức độ đúng đắn, chính xác, phù hợp của các kết quả thực hiện nhiệm vụ học tập của học sinh.", yeucau: "Sản phẩm học tập của học sinh đúng, chính xác, thể hiện sự hiểu bài.", diem_max: 10 },
+                ]
+            }
+        ];
+        
+        // --- Functions ---
+        
+        function addActivityRow() {
+            activityCounter++;
+            const activityHtml = `
+                <div class="activity-row border rounded-lg p-4 bg-gray-50/50" data-id="${activityCounter}">
+                    <div class="flex justify-between items-center mb-3">
+                        <input type="text" class="activity-title text-lg font-bold text-gray-800 bg-transparent w-full" value="Hoạt động ${activityCounter}: ">
+                        <button class="remove-activity-btn text-red-500 hover:text-red-700 font-bold">&times; Xóa</button>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Hoạt động của Thầy và Trò</label>
+                            <textarea rows="4" class="teacher-student-activity w-full p-2 border border-gray-300 rounded-md shadow-sm"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nội dung</label>
+                            <textarea rows="3" class="content w-full p-2 border border-gray-300 rounded-md shadow-sm"></textarea>
+                        </div>
+                        <div>
+                             <label class="block text-sm font-medium text-gray-700 mb-1">Nhận xét</label>
+                            <textarea rows="3" class="review w-full p-2 border border-gray-300 rounded-md shadow-sm bg-white"></textarea>
+                        </div>
+                         <div class="flex justify-end items-center gap-4">
+                              <button class="ai-fill-from-ppt-btn flex items-center gap-2 bg-gradient-to-r from-green-500 to-emerald-400 text-white font-semibold py-2 px-3 rounded-lg shadow-md ai-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M11.94 1.94a1 1 0 00-1.414 0l-8 8a1 1 0 000 1.414l8 8a1 1 0 001.414-1.414L4.828 11H18a1 1 0 100-2H4.828l7.11-7.11a1 1 0 00.002-1.414z" /></svg>
+                                AI Điền nội dung từ PPT
+                            </button>
+                             <button class="ai-suggest-btn flex items-center gap-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold py-2 px-3 rounded-lg shadow-md ai-button">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                                AI Gợi ý Nhận xét
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            elements.activitiesContainer.insertAdjacentHTML('beforeend', activityHtml);
+            const newRow = elements.activitiesContainer.querySelector(`[data-id="${activityCounter}"]`);
+            newRow.querySelector('.remove-activity-btn').addEventListener('click', () => newRow.remove());
+        }
+        
+        function populateEvaluationTable() {
+            const table = elements.evaluationTableBody.parentElement;
+            let thead = table.querySelector('thead');
+            if (!thead) {
+                thead = document.createElement('thead');
+                table.prepend(thead);
+            }
+            thead.innerHTML = `
+                <tr class="bg-gray-50">
+                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/4">Nội dung</th>
+                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/3">Yêu cầu cần đạt</th>
+                    <th class="py-3 px-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Điểm tối đa</th>
+                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/4">Ghi chú/Minh chứng</th>
+                    <th class="py-3 px-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Điểm đạt</th>
+                </tr>`;
+
+            elements.evaluationTableBody.innerHTML = ''; // Clear existing body
+            evaluationCriteria.forEach(category => {
+                const totalPoints = category.items.reduce((sum, item) => sum + item.diem_max, 0);
+                elements.evaluationTableBody.innerHTML += `
+                    <tr class="bg-gray-100 font-bold">
+                        <td colspan="5" class="py-2 px-4 text-gray-700">${category.category} (${totalPoints} điểm)</td>
+                    </tr>
+                `;
+                category.items.forEach(item => {
+                    elements.evaluationTableBody.innerHTML += `
+                        <tr>
+                            <td class="py-2 px-4 border-b">${item.noidung}</td>
+                            <td class="py-2 px-4 border-b">${item.yeucau}</td>
+                            <td class="py-2 px-4 border-b text-center">${item.diem_max}</td>
+                            <td class="py-2 px-4 border-b">
+                                <div class="relative">
+                                    <textarea rows="2" class="w-full p-1 border border-gray-300 rounded-md note-input pr-8"></textarea>
+                                    <button title="AI Gợi ý minh chứng" class="ai-note-suggest-btn absolute top-1 right-1 bg-blue-500 text-white rounded-full p-1 w-6 h-6 flex items-center justify-center hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="py-2 px-4 border-b text-center">
+                                <input type="number" class="score-input w-20 p-1 text-center border border-gray-300 rounded-md" min="0" max="${item.diem_max}" data-max="${item.diem_max}" value="0">
+                            </td>
+                        </tr>
+                    `;
+                });
+            });
+            
+            document.querySelectorAll('.score-input').forEach(input => input.addEventListener('input', updateTotalScore));
+        }
+        
+        function updateTotalScore() {
+            let totalScore = 0;
+            const maxScore = evaluationCriteria.flatMap(c => c.items).reduce((sum, item) => sum + item.diem_max, 0);
+            
+            document.querySelectorAll('.score-input').forEach(input => {
+                let value = parseFloat(input.value) || 0;
+                const max = parseFloat(input.dataset.max);
+                if (value > max) value = max;
+                if (value < 0) value = 0;
+                input.value = value;
+                totalScore += value;
+            });
+            
+            elements.totalScoreEl.textContent = `${totalScore}/${maxScore}`;
+            
+            const percentage = (totalScore / maxScore) * 100;
+            let ratingText = "Chưa đạt";
+            let ratingClass = "text-red-600";
+
+            if (percentage >= 90) { ratingText = "Tốt"; ratingClass = "text-green-600"; }
+            else if (percentage >= 70) { ratingText = "Khá"; ratingClass = "text-blue-600"; }
+            else if (percentage >= 50) { ratingText = "Đạt"; ratingClass = "text-yellow-600"; }
+            
+            elements.ratingEl.textContent = ratingText;
+            elements.ratingEl.className = `py-3 px-4 text-center text-lg font-bold ${ratingClass}`;
+        }
+        
+        async function handleAiSuggest(event) {
+            const button = event.target.closest('.ai-suggest-btn');
+            if (!button) return;
+
+            const activityRow = button.closest('.activity-row');
+            const activity = activityRow.querySelector('.teacher-student-activity').value;
+            const content = activityRow.querySelector('.content').value;
+            const reviewTextarea = activityRow.querySelector('.review');
+
+            if (!activity) {
+                reviewTextarea.value = "Vui lòng nhập 'Hoạt động của Thầy và Trò' trước.";
+                return;
+            }
+
+            const originalButtonContent = button.innerHTML;
+            button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang xử lý...</span>';
+            button.disabled = true;
+
+            const prompt = `Với vai trò là một chuyên gia giáo dục, hãy nhận xét ngắn gọn về hoạt động dạy học sau:\n- **Hoạt động của Thầy và Trò:** ${activity}\n- **Nội dung chính:** ${content}\n\n**Nhận xét:**`;
+
+            reviewTextarea.value = await callGeminiApi(prompt);
+            button.innerHTML = originalButtonContent;
+            button.disabled = false;
+        }
+
+        async function handleAiNoteSuggest(event) {
+            const button = event.target.closest('.ai-note-suggest-btn');
+            if (!button) return;
+    
+            const row = button.closest('tr');
+            const noteTextarea = row.querySelector('.note-input');
+    
+            const noidung = row.cells[0].textContent;
+            const yeucau = row.cells[1].textContent;
+            const score = row.querySelector('.score-input').value;
+            const maxScore = row.querySelector('.score-input').dataset.max;
+    
+            let allActivitiesText = "Không có hoạt động nào được nhập.";
+            const activityRows = document.querySelectorAll('.activity-row');
+            if (activityRows.length > 0 && Array.from(activityRows).some(r => r.querySelector('.teacher-student-activity').value)) {
+                allActivitiesText = Array.from(activityRows).map(activityRow => {
+                    const title = activityRow.querySelector('.activity-title').value;
+                    const activity = activityRow.querySelector('.teacher-student-activity').value;
+                    const content = activityRow.querySelector('.content').value;
+                    return `- ${title}\n  Hoạt động Thầy/Trò: ${activity || '(trống)'}\n  Nội dung: ${content || '(trống)'}`;
+                }).join('\n\n');
+            } else {
+                 noteTextarea.value = "Vui lòng nhập thông tin các hoạt động dạy học trước.";
+                 return;
+            }
+    
+            const prompt = `Dựa trên các hoạt động của tiết học dưới đây, hãy đưa ra một ghi chú hoặc minh chứng ngắn gọn (khoảng 1-2 câu) để giải thích cho số điểm là ${score}/${maxScore}, đối với tiêu chí sau:\n- **Tiêu chí:** "${noidung}"\n- **Yêu cầu cần đạt:** "${yeucau}"\n\n**Bối cảnh các hoạt động trong tiết học:**\n${allActivitiesText}\n\n**Ghi chú/Minh chứng gợi ý:**`;
+    
+            const originalButtonContent = button.innerHTML;
+            button.innerHTML = '<div class="loader inline-loader"></div>';
+            button.disabled = true;
+    
+            noteTextarea.value = await callGeminiApi(prompt);
+            
+            button.innerHTML = originalButtonContent;
+            button.disabled = false;
+        }
+
+        async function handleAiOverallReview() {
+             const button = elements.aiOverallReviewBtn;
+             const originalButtonContent = button.innerHTML;
+             button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang tổng hợp...</span>';
+             button.disabled = true;
+             
+             let promptData = `Với vai trò là một chuyên gia giáo dục, dựa trên toàn bộ thông tin về tiết dạy dưới đây, hãy viết một nhận xét tổng thể bao gồm 3 mục rõ ràng: "1. Ưu điểm", "2. Hạn chế", và "3. Góp ý".\n\n**THÔNG TIN TIẾT DẠY:**\n`;
+             
+             // Activities
+             promptData += "\n**TIẾN TRÌNH HOẠT ĐỘNG:**\n";
+             document.querySelectorAll('.activity-row').forEach(row => {
+                 promptData += `- **${row.querySelector('.activity-title').value}:**\n  - Hoạt động Thầy/Trò: ${row.querySelector('.teacher-student-activity').value}\n  - Nội dung: ${row.querySelector('.content').value}\n  - Nhận xét đã có: ${row.querySelector('.review').value}\n`;
+             });
+
+            // Evaluation
+            promptData += "\n**BẢNG ĐÁNH GIÁ:**\n";
+            document.querySelectorAll('#evaluation-table-body tr').forEach(row => {
+                if (row.cells.length > 1) {
+                    const content = row.cells[0].textContent;
+                    const note = row.cells[3].querySelector('textarea')?.value || 'Không';
+                    const score = row.cells[4].querySelector('input')?.value || '0';
+                    promptData += `- ${content}: ${score} điểm (Ghi chú: ${note})\n`;
+                } else {
+                    promptData += `\n**${row.textContent}**\n`;
+                }
+            });
+            promptData += `\n- **Tổng điểm:** ${elements.totalScoreEl.textContent}\n- **Xếp loại:** ${elements.ratingEl.textContent}\n\n**BÁO CÁO TỔNG HỢP (Ưu điểm, Hạn chế, Góp ý):**`;
+            
+            const result = await callGeminiApi(promptData);
+            const strengthsMatch = result.match(/(?:1. Ưu điểm|Ưu điểm):([\s\S]*?)(?:2. Hạn chế|Hạn chế)/i);
+            const weaknessesMatch = result.match(/(?:2. Hạn chế|Hạn chế):([\s\S]*?)(?:3. Góp ý|Góp ý)/i);
+            const suggestionsMatch = result.match(/(?:3. Góp ý|Góp ý):([\s\S]*)/i);
+
+            elements.strengthsEl.value = strengthsMatch ? strengthsMatch[1].trim() : "";
+            elements.weaknessesEl.value = weaknessesMatch ? weaknessesMatch[1].trim() : "";
+            elements.suggestionsEl.value = suggestionsMatch ? suggestionsMatch[1].trim() : "";
+            
+            if (!strengthsMatch && !weaknessesMatch && !suggestionsMatch) {
+                elements.suggestionsEl.value = result; // Put full result if parsing fails
+            }
+
+            button.innerHTML = originalButtonContent;
+            button.disabled = false;
+        }
+
+        // --- PowerPoint Analysis Functions ---
+        async function handleExtractPpt() {
+            const file = elements.pptUpload.files[0];
+            if (!file) {
+                elements.pptStatus.textContent = "Vui lòng chọn một tệp PowerPoint (.pptx) trước.";
+                elements.pptStatus.classList.add('text-red-500');
+                return;
+            }
+
+            const button = elements.extractPptBtn;
+            const originalButtonContent = button.innerHTML;
+            button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang đọc...</span>';
+            button.disabled = true;
+            elements.pptStatus.textContent = "Bắt đầu đọc và trích xuất nội dung...";
+            elements.pptStatus.classList.remove('text-red-500', 'text-green-600');
+
+            try {
+                const text = await extractTextFromPptx(file);
+                pptTextContent = text;
+                 if (!pptTextContent.trim()) {
+                     elements.pptStatus.textContent = "Lỗi: Không tìm thấy nội dung văn bản trong tệp.";
+                     elements.pptStatus.classList.add('text-red-500');
+                     pptTextContent = null;
+                 } else {
+                    const slideCount = (pptTextContent.match(/--- Slide/g) || []).length;
+                    elements.pptStatus.textContent = `Trích xuất thành công nội dung từ ${slideCount} slide.`;
+                    elements.pptStatus.classList.add('text-green-600');
+                 }
+            } catch (error) {
+                console.error("Error processing PPTX file:", error);
+                elements.pptStatus.textContent = `Lỗi: ${error.message}`;
+                elements.pptStatus.classList.add('text-red-500');
+                pptTextContent = null;
+            } finally {
+                button.innerHTML = originalButtonContent;
+                button.disabled = false;
+            }
+        }
+        
+        async function handleAiPptOverview() {
+            if (!pptTextContent) {
+                 elements.pptAnalysisResult.value = "Vui lòng tải lên và trích xuất nội dung từ tệp PowerPoint trước.";
+                 return;
+            }
+
+            const button = elements.aiOverviewPptBtn;
+            const originalButtonContent = button.innerHTML;
+            button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang phân tích...</span>';
+            button.disabled = true;
+            elements.pptAnalysisResult.value = "Đang gửi nội dung đến AI để nhận xét tổng quan...";
+
+            const subject = document.getElementById('subject').value || '[Chưa nhập Môn học]';
+            const className = document.getElementById('className').value || '[Chưa nhập Lớp]';
+
+            const prompt = `Bạn là một chuyên gia về giáo dục và thẩm định chương trình giảng dạy tại Việt Nam.
+            **Bối cảnh:** Tôi có một bài giảng được soạn thảo trên PowerPoint dành cho Môn học "${subject}", Lớp "${className}" thuộc cấp Trung học cơ sở (THCS) theo Chương trình Giáo dục Phổ thông (GDPT) 2018.
+            **Nhiệm vụ:** Dựa vào nội dung văn bản được trích xuất từ các slide dưới đây, hãy phân tích và đưa ra nhận xét, góp ý chi tiết theo các tiêu chí sau:
+            
+            1.  **Tính phù hợp với Chương trình GDPT 2018:**
+                * Nội dung bài giảng có bám sát yêu cầu cần đạt về phẩm chất và năng lực của môn học trong chương trình không?
+                * Mục tiêu bài học có rõ ràng và phù hợp với mục tiêu chung của chương trình không?
+            
+            2.  **Phương pháp và Kỹ thuật dạy học:**
+                * Bài giảng có thể hiện được tinh thần đổi mới của chương trình không (ví dụ: dạy học phát triển năng lực, lấy học sinh làm trung tâm)?
+                * Các hoạt động được đề xuất (nếu có) có đa dạng, hấp dẫn và phù hợp để tổ chức cho học sinh hoạt động không? (ví dụ: thảo luận nhóm, dự án, giải quyết vấn đề).
+            
+            3.  **Cấu trúc và Nội dung:**
+                * Cấu trúc bài giảng có logic, khoa học và dễ theo dõi không?
+                * Nội dung kiến thức có chính xác, cập nhật và phù hợp với trình độ nhận thức của học sinh lớp ${className} không?
+            
+            4.  **Đánh giá:**
+                * Bài giảng có gợi ý các hình thức đánh giá (câu hỏi, bài tập, hoạt động) phù hợp với mục tiêu phát triển năng lực không (đánh giá thường xuyên, đánh giá quá trình)?
+            
+            5.  **Góp ý & Đề xuất cải tiến:**
+                * Đưa ra những góp ý cụ thể, mang tính xây dựng để giáo viên có thể cải thiện bài giảng này tốt hơn, bám sát hơn nữa tinh thần của chương trình GDPT 2018.
+            
+            **NỘI DUNG TRÍCH XUẤT TỪ POWERPOINT:**
+            ---
+            ${pptTextContent}
+            ---
+            
+            Hãy trình bày kết quả phân tích một cách rõ ràng, có cấu trúc theo các mục trên.`;
+
+            elements.pptAnalysisResult.value = await callGeminiApi(prompt);
+
+            button.innerHTML = originalButtonContent;
+            button.disabled = false;
+        }
+
+        async function handleAiFillFromPpt(event) {
+            const button = event.target.closest('.ai-fill-from-ppt-btn');
+            if (!button) return;
+
+             if (!pptTextContent) {
+                alert("Lỗi: Vui lòng tải lên và trích xuất nội dung từ tệp PowerPoint trước khi sử dụng tính năng này.");
+                return;
+            }
+
+            const activityRow = button.closest('.activity-row');
+            const activityTitle = activityRow.querySelector('.activity-title').value;
+            const teacherStudentTextarea = activityRow.querySelector('.teacher-student-activity');
+            const contentTextarea = activityRow.querySelector('.content');
+
+            const originalButtonContent = button.innerHTML;
+            button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang điền...</span>';
+            button.disabled = true;
+
+            const prompt = `Dựa vào toàn bộ nội dung bài giảng PowerPoint đã được trích xuất dưới đây, hãy tập trung vào hoạt động có tên "${activityTitle}" và soạn thảo nội dung chi tiết cho hai mục sau:
+
+            1.  **Hoạt động của Thầy và Trò:** Mô tả rõ ràng các bước, hành động của giáo viên (tổ chức, dẫn dắt, nêu câu hỏi) và của học sinh (lắng nghe, thảo luận, trình bày, làm bài tập).
+            2.  **Nội dung:** Ghi lại những kiến thức, khái niệm, hoặc yêu cầu cốt lõi của hoạt động này mà học sinh cần nắm bắt.
+            
+            Hãy trình bày câu trả lời theo đúng hai mục trên.
+            
+            **TOÀN BỘ NỘI DUNG BÀI GIẢNG POWERPOINT:**
+            ---
+            ${pptTextContent}
+            ---`;
+            
+            const result = await callGeminiApi(prompt);
+            
+            const teacherActivityMatch = result.match(/(?:1.\s*)?Hoạt động của Thầy và Trò:([\s\S]*?)(?:2.\s*Nội dung:|Nội dung:)/i);
+            const contentMatch = result.match(/(?:2.\s*)?Nội dung:([\s\S]*)/i);
+
+            teacherStudentTextarea.value = teacherActivityMatch ? teacherActivityMatch[1].trim() : "AI không thể tự động điền mục này. Vui lòng kiểm tra lại nội dung PPT.";
+            contentTextarea.value = contentMatch ? contentMatch[1].trim() : "AI không thể tự động điền mục này.";
+
+            button.innerHTML = originalButtonContent;
+            button.disabled = false;
+        }
+        
+        async function extractTextFromPptx(file) {
+            const zip = await JSZip.loadAsync(file);
+            const slidePromises = [];
+            
+            zip.folder("ppt/slides").forEach((relativePath, file) => {
+                if (relativePath.startsWith("slide") && relativePath.endsWith(".xml")) {
+                    slidePromises.push(file.async("string"));
+                }
+            });
+            
+            const slideXmls = await Promise.all(slidePromises);
+            let fullText = "";
+            
+            const parser = new DOMParser();
+            slideXmls.forEach((xmlString, index) => {
+                const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+                const textNodes = xmlDoc.getElementsByTagName("a:t");
+                let slideText = "";
+                for (let i = 0; i < textNodes.length; i++) {
+                    slideText += textNodes[i].textContent + " ";
+                }
+                if (slideText.trim()) {
+                     fullText += `\n--- Slide ${index + 1} ---\n${slideText.trim()}\n`;
+                }
+            });
+            
+            return fullText;
+        }
+
+        function exportToDocx() {
+            const { Document, Packer, Paragraph, Table, TableCell, TableRow, TextRun, AlignmentType, WidthType, BorderStyle } = docx;
+
+            // --- Helper Functions ---
+            const createBoldText = (text) => new TextRun({ text, bold: true, font: "Times New Roman", size: 24 });
+            const createNormalText = (text) => new TextRun({ text, font: "Times New Roman", size: 24 });
+            const createMultiLine = (text) => (text || '').split('\n').map(line => new Paragraph({ children: [createNormalText(line)]}));
+            const noBorders = { top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, bottom: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } };
+
+            // --- Gather Data from UI ---
+            const data = {
+                govBody: document.getElementById('governing-body').value.toUpperCase(),
+                schoolUnit: document.getElementById('school-unit').value.toUpperCase(),
+                teacherName: document.getElementById('teacherName').value,
+                lessonName: document.getElementById('lessonName').value,
+                subject: document.getElementById('subject').value,
+                className: document.getElementById('className').value,
+                period: document.getElementById('lesson-period').value,
+                date: document.getElementById('lesson-date').value,
+                attendeeName: document.getElementById('attendee-name').value,
+                attendeeUnit: document.getElementById('attendee-unit').value,
+            };
+
+            // --- 1. Header Section ---
+            const headerTable = new Table({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                rows: [ new TableRow({
+                    children: [
+                        new TableCell({ borders: noBorders, children: [
+                            new Paragraph({ text: data.govBody, alignment: AlignmentType.CENTER }),
+                            new Paragraph({ children: [createBoldText(data.schoolUnit)], alignment: AlignmentType.CENTER }),
+                        ]}),
+                        new TableCell({ borders: noBorders, children: [
+                            new Paragraph({ children: [createBoldText("CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM")], alignment: AlignmentType.CENTER }),
+                            new Paragraph({ children: [createBoldText("Độc lập – Tự do – Hạnh phúc")], alignment: AlignmentType.CENTER }),
+                        ]}),
+                    ],
+                })],
+            });
+
+            // --- 2. General Info Section ---
+            const formattedDate = data.date ? new Date(data.date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '.../.../...';
+            const generalInfo = [
+                new Paragraph({ text: " " }),
+                new Paragraph({ children: [createBoldText("PHIẾU DỰ GIỜ GIÁO VIÊN TRUNG HỌC")], alignment: AlignmentType.CENTER }),
+                new Paragraph({ text: " " }),
+                new Paragraph({ children: [createBoldText("Họ và tên giáo viên: "), createNormalText(data.teacherName)] }),
+                new Paragraph({ children: [createBoldText("Tên bài dạy (chủ đề): "), createNormalText(data.lessonName)] }),
+                new Paragraph({ children: [
+                    createBoldText("Môn: "), createNormalText(data.subject),
+                    createBoldText("  Lớp: "), createNormalText(data.className),
+                    createBoldText("  Tiết: "), createNormalText(data.period),
+                    createBoldText("  Ngày: "), createNormalText(formattedDate),
+                ]}),
+                new Paragraph({ children: [createBoldText("Họ và tên người dự: "), createNormalText(data.attendeeName)] }),
+                new Paragraph({ children: [createBoldText("Đơn vị công tác: "), createNormalText(data.attendeeUnit)] }),
+                new Paragraph({ text: " " }),
+            ];
+
+            // --- 3. Activities Table ---
+            const activityTableRows = Array.from(document.querySelectorAll('.activity-row')).flatMap((row) => {
+                const title = row.querySelector('.activity-title').value;
+                const activity = row.querySelector('.teacher-student-activity').value;
+                const content = row.querySelector('.content').value;
+                const review = row.querySelector('.review').value;
+                return [ new TableRow({ children: [
+                    new TableCell({ children: [new Paragraph({ children: [createBoldText(title)] }), ...createMultiLine(activity)] }),
+                    new TableCell({ children: createMultiLine(content) }),
+                    new TableCell({ children: createMultiLine(review) }),
+                ]})];
+            });
+            const activitiesTable = new Table({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                rows: [
+                    new TableRow({ tableHeader: true, children: [
+                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Hoạt động của Thầy và Trò")] })] }),
+                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Nội dung")] })] }),
+                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Nhận xét")] })] }),
+                    ]}),
+                    ...activityTableRows,
+                ]
+            });
+
+            // --- 4. Evaluation Table ---
+            const evalTableRows = [];
+            document.querySelectorAll('#evaluation-table-body tr').forEach(row => {
+                 if (row.cells.length === 1) { // Category Row
+                     evalTableRows.push(new TableRow({ children: [new TableCell({ children: [new Paragraph({children: [createBoldText(row.cells[0].textContent)]})], columnSpan: 5 })] }));
+                 } else {
+                     const cells = Array.from(row.cells);
+                     evalTableRows.push(new TableRow({ children: [
+                         new TableCell({ children: createMultiLine(cells[0].textContent) }),
+                         new TableCell({ children: createMultiLine(cells[1].textContent) }),
+                         new TableCell({ children: [new Paragraph({ children: [createNormalText(cells[2].textContent)], alignment: AlignmentType.CENTER })] }),
+                         new TableCell({ children: createMultiLine(cells[3].querySelector('textarea').value) }),
+                         new TableCell({ children: [new Paragraph({ children: [createNormalText(cells[4].querySelector('input').value)], alignment: AlignmentType.CENTER })] }),
+                     ]}));
+                 }
+            });
+            const evaluationTable = new Table({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                rows: [
+                    new TableRow({ tableHeader: true, children: [
+                        new TableCell({ children: [new Paragraph({children: [createBoldText("Nội dung")]})] }),
+                        new TableCell({ children: [new Paragraph({children: [createBoldText("Yêu cầu cần đạt")]})] }),
+                        new TableCell({ children: [new Paragraph({children: [createBoldText("Điểm tối đa")], alignment: AlignmentType.CENTER})] }),
+                        new TableCell({ children: [new Paragraph({children: [createBoldText("Ghi chú/Minh chứng")]})] }),
+                        new TableCell({ children: [new Paragraph({children: [createBoldText("Điểm đạt")], alignment: AlignmentType.CENTER})] }),
+                    ]}),
+                    ...evalTableRows,
+                    new TableRow({ children: [
+                        new TableCell({ children: [new Paragraph({children: [createBoldText("Tổng cộng")], alignment: AlignmentType.RIGHT })], columnSpan: 4 }),
+                        new TableCell({ children: [new Paragraph({children: [createBoldText(elements.totalScoreEl.textContent.split('/')[0])], alignment: AlignmentType.CENTER })] }),
+                    ]}),
+                ]
+            });
+
+            // --- 5. Footer and Signature ---
+             const today = new Date();
+             const location = data.schoolUnit.split(' ').pop() || '...,';
+             const signDate = `${location} ngày ${today.getDate()} tháng ${today.getMonth() + 1} năm ${today.getFullYear()}`;
+             const signatureTable = new Table({
+                width: { size: 100, type: WidthType.PERCENTAGE },
+                rows: [ new TableRow({ children: [
+                    new TableCell({ borders: noBorders, children: [
+                        new Paragraph({ children: [createBoldText("Giáo viên dạy")], alignment: AlignmentType.CENTER }),
+                        new Paragraph({ children: [new TextRun({text: "(Ký, ghi rõ họ tên)", italics: true, font: "Times New Roman", size: 24})], alignment: AlignmentType.CENTER }),
+                        new Paragraph({text: " "}), new Paragraph({text: " "}), new Paragraph({text: " "}),
+                        new Paragraph({ children: [createBoldText(data.teacherName)], alignment: AlignmentType.CENTER }),
+                    ]}),
+                    new TableCell({ borders: noBorders, children: [
+                        new Paragraph({ children: [new TextRun({ text: signDate, italics: true, font: "Times New Roman", size: 24 })], alignment: AlignmentType.CENTER }),
+                        new Paragraph({ children: [createBoldText("Người dự")], alignment: AlignmentType.CENTER }),
+                        new Paragraph({ children: [new TextRun({text: "(Ký, ghi rõ họ tên)", italics: true, font: "Times New Roman", size: 24})], alignment: AlignmentType.CENTER }),
+                        new Paragraph({text: " "}), new Paragraph({text: " "}), new Paragraph({text: " "}),
+                        new Paragraph({ children: [createBoldText(data.attendeeName)], alignment: AlignmentType.CENTER }),
+                    ]})
+                ]})]
+             });
+
+            // --- Assemble Document ---
+            const doc = new Document({
+                sections: [{
+                    children: [
+                        headerTable,
+                        ...generalInfo,
+                        new Paragraph({ children: [createBoldText("B. TIẾN TRÌNH HOẠT ĐỘNG DẠY VÀ HỌC")] }),
+                        activitiesTable,
+                        new Paragraph({ text: " " }),
+                        new Paragraph({ children: [createBoldText("C. ĐÁNH GIÁ TIẾT HỌC")] }),
+                        evaluationTable,
+                        new Paragraph({ text: " " }),
+                        new Paragraph({ children: [
+                            createBoldText("Tổng điểm: "), createBoldText(elements.totalScoreEl.textContent),
+                            createBoldText("  Xếp loại: "), createBoldText(elements.ratingEl.textContent),
+                        ], alignment: AlignmentType.RIGHT }),
+                        new Paragraph({ text: " " }),
+                        new Paragraph({ children: [createBoldText("D. NHẬN XÉT CHUNG VÀ GÓP Ý")] }),
+                        new Paragraph({ children: [createBoldText("1. Ưu điểm:")] }),
+                        ...createMultiLine(elements.strengthsEl.value),
+                        new Paragraph({ children: [createBoldText("2. Hạn chế:")] }),
+                        ...createMultiLine(elements.weaknessesEl.value),
+                        new Paragraph({ children: [createBoldText("3. Góp ý:")] }),
+                        ...createMultiLine(elements.suggestionsEl.value),
+                        new Paragraph({ text: " " }), new Paragraph({ text: " " }),
+                        signatureTable,
+                    ],
+                }],
+            });
+
+            // --- Generate and Download DOCX ---
+            Packer.toBlob(doc).then(blob => {
+                const fileName = `Phieu-Du-Gio-${data.teacherName.replace(/\s/g, '_') || 'GiaoVien'}.docx`;
+                saveAs(blob, fileName);
+            });
+        }
+        
+        // --- Event Listeners ---
+        elements.addActivityBtn.addEventListener('click', addActivityRow);
+        elements.activitiesContainer.addEventListener('click', (event) => {
+            if (event.target.closest('.ai-suggest-btn')) {
+                handleAiSuggest(event);
+            }
+            if (event.target.closest('.ai-fill-from-ppt-btn')) {
+                handleAiFillFromPpt(event);
+            }
+        });
+        
+        elements.evaluationTableBody.addEventListener('click', (event) => {
+            if (event.target.closest('.ai-note-suggest-btn')) {
+                handleAiNoteSuggest(event);
+            }
+        });
+
+        elements.aiOverallReviewBtn.addEventListener('click', handleAiOverallReview);
+        elements.exportDocxBtn.addEventListener('click', exportToDocx);
+        elements.extractPptBtn.addEventListener('click', handleExtractPpt);
+        elements.aiOverviewPptBtn.addEventListener('click', handleAiPptOverview);
+
+        // --- Initial setup ---
+        addActivityRow();
+        populateEvaluationTable();
+        updateTotalScore();
+        document.getElementById('lesson-date').valueAsDate = new Date(); // Set default date to today
+
+    </script>
+
+</body>
+
+</html>
+
