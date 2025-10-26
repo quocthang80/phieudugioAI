@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ứng dụng Tạo Phiếu Dự Giờ AI (Mẫu Mới)</title>
+    <!-- ĐÃ CẬP NHẬT TIÊU ĐỀ -->
+    <title>Ứng dụng Tạo Phiếu Đánh Giá Bài Dạy (Mẫu 5512)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -61,13 +62,15 @@
 
     <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-6 sm:p-8 app-container">
         <div class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600">Phiếu Dự Giờ Thông Minh (Mẫu Mới)</h1>
-            <p class="text-gray-500 mt-2">Tạo và xuất phiếu dự giờ theo mẫu chuẩn với sự hỗ trợ từ AI</p>
+            <!-- ĐÃ CẬP NHẬT TIÊU ĐỀ -->
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600">Phiếu Đánh Giá Bài Dạy (Mẫu CV 5512)</h1>
+            <p class="text-gray-500 mt-2">Tạo và xuất phiếu đánh giá theo mẫu chuẩn của Bộ GD&ĐT</p>
         </div>
 
         <!-- Thông tin chung -->
         <div class="border-b pb-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">A. Thông tin chung</h2>
+            <!-- ĐÃ CẬP NHẬT TIÊU ĐỀ -->
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">I. Thông tin chung</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label for="governing-body" class="block text-sm font-medium text-gray-700 mb-1">Cơ quan chủ quản (VD: UBND HUYỆN THẠNH TRỊ)</label>
@@ -78,7 +81,7 @@
                     <input type="text" id="school-unit" value="TRƯỜNG THCS PHÚ LỘC 2" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
-                    <label for="teacherName" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên giáo viên</label>
+                    <label for="teacherName" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên giáo viên thực hiện</label>
                     <input type="text" id="teacherName" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                  <div>
@@ -86,7 +89,7 @@
                     <input type="text" id="lessonName" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
-                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Môn học</label>
+                    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Môn học/Hoạt động giáo dục</label>
                     <input type="text" id="subject" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
@@ -102,7 +105,7 @@
                     <input type="date" id="lesson-date" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
-                    <label for="attendee-name" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên người dự</label>
+                    <label for="attendee-name" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên người dự (Người đánh giá)</label>
                     <input type="text" id="attendee-name" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
@@ -114,7 +117,7 @@
         
         <!-- NEW FEATURE: PowerPoint Analysis -->
         <div class="border-b pb-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">E. Hỗ trợ từ AI với tệp PowerPoint</h2>
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">Hỗ trợ từ AI với tệp PowerPoint</h2>
             <div class="bg-blue-50 p-6 rounded-lg">
                 <p class="text-sm text-gray-600 mb-4">Tải lên tệp bài giảng (.pptx) để AI trích xuất nội dung, sau đó bạn có thể dùng AI để điền tự động vào các hoạt động hoặc nhận xét tổng quan.</p>
                 <div class="flex items-center gap-4 mb-4">
@@ -140,7 +143,8 @@
 
         <!-- Hoạt động của giáo viên và học sinh -->
         <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">B. Tiến trình hoạt động dạy và học</h2>
+            <!-- ĐÃ CẬP NHẬT TIÊU ĐỀ -->
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">Phần ghi nhận</h2>
             <div id="activities-container" class="space-y-6">
                 <!-- Activity rows will be added here by JavaScript -->
             </div>
@@ -152,7 +156,8 @@
 
         <!-- Bảng tiêu chí đánh giá -->
         <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">C. Đánh giá tiết học</h2>
+            <!-- ĐÃ CẬP NHẬT TIÊU ĐỀ -->
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">II. Tiêu chí đánh giá</h2>
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-white rounded-lg">
                     <thead class="bg-gray-50">
@@ -163,12 +168,13 @@
                     </tbody>
                     <tfoot>
                         <tr class="bg-gray-100 font-semibold">
-                            <td colspan="4" class="py-3 px-4 text-right">Tổng điểm:</td>
-                            <td id="total-score" class="py-3 px-4 text-center text-lg">0/100</td>
+                            <!-- ĐÃ CẬP NHẬT COLSPAN -->
+                            <td colspan="2" class="py-3 px-4 text-right">Tổng điểm:</td>
+                            <td id="total-score" class="py-3 px-4 text-center text-lg">0.00/20.00</td>
                         </tr>
                         <tr class="bg-gray-100 font-semibold">
-                            <td colspan="4" class="py-3 px-4 text-right">Xếp loại:</td>
-                            <td id="rating" class="py-3 px-4 text-center text-lg">Chưa đạt</td>
+                            <td colspan="2" class="py-3 px-4 text-right">Xếp loại:</td>
+                            <td id="rating" class="py-3 px-4 text-center text-lg">Không đạt</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -176,26 +182,47 @@
         </div>
 
         <!-- Nhận xét chung và Góp ý -->
+        <!-- ĐÃ THAY ĐỔI TOÀN BỘ PHẦN NÀY ĐỂ GIỐNG HỆT PDF -->
         <div class="mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-gray-700">D. Nhận xét chung và góp ý</h2>
-            <div class="space-y-4">
+            <h2 class="text-2xl font-bold mb-4 text-gray-700">III. Nhận xét, đánh giá</h2>
+            <div class="space-y-6">
                 <div>
-                    <label for="strengths" class="block text-sm font-medium text-gray-700 mb-1">Ưu điểm</label>
-                    <textarea id="strengths" rows="4" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    <h3 class="text-lg font-semibold text-gray-800">1. Giáo viên dạy tự nhận xét</h3>
+                    <div class="mt-2 space-y-3 pl-4">
+                        <div>
+                            <label for="gv-thanhcong" class="block text-sm font-medium text-gray-700 mb-1">a) Những thành công của giờ dạy (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):</label>
+                            <textarea id="gv-thanhcong" rows="3" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <div>
+                            <label for="gv-hanche" class="block text-sm font-medium text-gray-700 mb-1">b) Những hạn chế của tiết học cần lưu ý (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):</label>
+                            <textarea id="gv-hanche" rows="3" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <label for="weaknesses" class="block text-sm font-medium text-gray-700 mb-1">Hạn chế</label>
-                    <textarea id="weaknesses" rows="4" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
-                </div>
-                <div>
-                    <label for="suggestions" class="block text-sm font-medium text-gray-700 mb-1">Góp ý</label>
-                    <textarea id="suggestions" rows="4" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    <!-- ĐÃ THÊM NÚT AI GỢI Ý VÀO KHU VỰC NÀY -->
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold text-gray-800">2. Người dự giờ nhận xét</h3>
+                        <button id="ai-attendee-review-btn" class="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold py-2 px-3 rounded-lg shadow-md ai-button text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                            AI Gợi ý Nhận xét
+                        </button>
+                    </div>
+                    <div class="mt-2 space-y-3 pl-4">
+                        <div>
+                            <label for="nd-thanhcong" class="block text-sm font-medium text-gray-700 mb-1">a) Những thành công của giờ dạy (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):</label>
+                            <textarea id="nd-thanhcong" rows="3" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <div>
+                            <label for="nd-hanche" class="block text-sm font-medium text-gray-700 mb-1">b) Những hạn chế của tiết học cần lưu ý (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):</label>
+                            <textarea id="nd-hanche" rows="3" class="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button id="ai-overall-review-btn" class="mt-6 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg ai-button">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                AI Tổng hợp Nhận xét
-            </button>
+            <!-- ĐÃ XOÁ NÚT AI TỔNG HỢP CŨ -->
         </div>
 
         <!-- Chức năng -->
@@ -215,7 +242,8 @@
 
     <script type="module">
         // --- Gemini API Call ---
-        const GEMINI_API_KEY = 'AIzaSyBwZ71EnXJ0R2PPR1xc8EIDKHeZGWmuzkk';
+        // Vui lòng thay thế 'YOUR_API_KEY' bằng API Key của bạn
+        const GEMINI_API_KEY = 'AIzaSyDIpYsCuJg-cJci2Zh02GbaFg5TQGTT7Dc'; 
         const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
         
         async function callGeminiApi(prompt) {
@@ -258,11 +286,14 @@
             evaluationTableBody: document.getElementById('evaluation-table-body'),
             totalScoreEl: document.getElementById('total-score'),
             ratingEl: document.getElementById('rating'),
-            aiOverallReviewBtn: document.getElementById('ai-overall-review-btn'),
-            strengthsEl: document.getElementById('strengths'),
-            weaknessesEl: document.getElementById('weaknesses'),
-            suggestionsEl: document.getElementById('suggestions'),
+            // ĐÃ XOÁ CÁC ELEMENT CỦA PHẦN D CŨ
             exportDocxBtn: document.getElementById('export-docx-btn'),
+            
+            // ĐÃ THÊM CÁC ELEMENT MỚI
+            aiAttendeeReviewBtn: document.getElementById('ai-attendee-review-btn'),
+            ndThanhCong: document.getElementById('nd-thanhcong'),
+            ndHanche: document.getElementById('nd-hanche'),
+
             // PPT elements
             pptUpload: document.getElementById('ppt-upload'),
             extractPptBtn: document.getElementById('extract-ppt-btn'),
@@ -272,30 +303,34 @@
         };
         
         // --- Data Structure for Evaluation ---
+        // ĐÃ CẬP NHẬT THEO THANG 20 ĐIỂM (CV 5512)
+        // ĐÃ LOẠI BỎ 'yeucau' VÌ KHÔNG CÓ TRONG BẢNG CỦA PDF
         const evaluationCriteria = [
             {
-                category: "1. Kế hoạch bài dạy",
+                category: "Kế hoạch bài dạy",
                 items: [
-                    { noidung: "Mức độ phù hợp của chuỗi hoạt động học với mục tiêu, nội dung, phương pháp dạy học được sử dụng.", yeucau: "Phù hợp với mục tiêu, nội dung và đối tượng học sinh; thể hiện rõ vai trò của giáo viên và học sinh.", diem_max: 10 },
-                    { noidung: "Mức độ rõ ràng của mục tiêu, nội dung, kĩ thuật tổ chức và sản phẩm cần đạt được của mỗi nhiệm vụ học tập.", yeucau: "Mục tiêu, nội dung, sản phẩm học tập của mỗi nhiệm vụ cụ thể, rõ ràng.", diem_max: 10 },
-                    { noidung: "Mức độ phù hợp của thiết bị dạy học và học liệu được sử dụng để tổ chức các hoạt động học của học sinh.", yeucau: "Thiết bị dạy học, học liệu phù hợp với hoạt động học; học sinh dễ dàng sử dụng.", diem_max: 10 },
+                    { noidung: "1. Mức độ phù hợp của các hoạt động học với mục tiêu, nội dung và phương pháp dạy học được sử dụng.", diem_max: 1.0 },
+                    { noidung: "2. Mức độ rõ ràng, chính xác của mục tiêu, nội dung, sản phẩm, cách thức tổ chức thực hiện mỗi hoạt động học của học sinh.", diem_max: 2.0 },
+                    { noidung: "3. Mức độ phù hợp của thiết bị dạy học và học liệu được sử dụng để tổ chức các hoạt động học của học sinh.", diem_max: 1.0 },
+                    { noidung: "4. Mức độ phù hợp của phương án kiểm tra, đánh giá trong quá trình tổ chức hoạt động học của học sinh.", diem_max: 2.0 }
                 ]
             },
             {
-                category: "2. Hoạt động của giáo viên",
+                category: "Hoạt động của giáo viên",
                 items: [
-                    { noidung: "Khả năng tạo hứng thú, thu hút học sinh tham gia vào các hoạt động học tập.", yeucau: "Tạo được hứng thú, thu hút học sinh vào hoạt động học.", diem_max: 10 },
-                    { noidung: "Mức độ linh hoạt trong việc quan sát, theo dõi, bao quát, phát hiện kịp thời những khó khăn của học sinh.", yeucau: "Quan sát, bao quát lớp tốt, phát hiện và hỗ trợ học sinh kịp thời.", diem_max: 10 },
-                    { noidung: "Mức độ chính xác, hiệu quả trong việc tổng hợp, phân tích, đánh giá quá trình và kết quả học tập của học sinh.", yeucau: "Nhận xét, đánh giá đúng trọng tâm, làm rõ được vấn đề.", diem_max: 10 },
+                    { noidung: "5. Mức độ chính xác, phù hợp, sinh động, hấp dẫn của nội dung, phương pháp và hình thức chuyển giao nhiệm vụ học tập cho học sinh.", diem_max: 2.0 },
+                    { noidung: "6. Khả năng theo dõi, quan sát, phát hiện kịp thời những khó khăn của học sinh.", diem_max: 1.0 },
+                    { noidung: "7. Mức độ phù hợp, hiệu quả của các biện pháp hỗ trợ và khuyến khích học sinh hợp tác, giúp đỡ nhau khi thực hiện nhiệm vụ học tập.", diem_max: 2.0 },
+                    { noidung: "8. Mức độ chính xác, hiệu quả trong việc tổng hợp, phân tích, đánh giá quá trình và kết quả học tập của học sinh.", diem_max: 2.0 }
                 ]
             },
             {
-                category: "3. Hoạt động của học sinh",
+                category: "Hoạt động của học sinh",
                 items: [
-                    { noidung: "Khả năng tiếp nhận và sẵn sàng thực hiện nhiệm vụ học tập của học sinh trong lớp.", yeucau: "Học sinh tiếp nhận nhiệm vụ nhanh chóng, sẵn sàng thực hiện.", diem_max: 10 },
-                    { noidung: "Mức độ tích cực, chủ động, sáng tạo, hợp tác của học sinh trong việc thực hiện các nhiệm vụ học tập.", yeucau: "Học sinh tích cực, chủ động, hợp tác hiệu quả.", diem_max: 10 },
-                    { noidung: "Mức độ tham gia tích cực của học sinh trong trình bày, thảo luận về kết quả thực hiện nhiệm vụ học tập.", yeucau: "Học sinh tham gia trình bày, thảo luận sôi nổi, tự tin.", diem_max: 10 },
-                    { noidung: "Mức độ đúng đắn, chính xác, phù hợp của các kết quả thực hiện nhiệm vụ học tập của học sinh.", yeucau: "Sản phẩm học tập của học sinh đúng, chính xác, thể hiện sự hiểu bài.", diem_max: 10 },
+                    { noidung: "9. Khả năng tiếp nhận và sẵn sàng thực hiện nhiệm vụ học tập của tất cả học sinh trong lớp.", diem_max: 2.0 },
+                    { noidung: "10. Mức độ tích cực, chủ động, sáng tạo, hợp tác của học sinh trong việc thực hiện các nhiệm vụ học tập.", diem_max: 2.0 },
+                    { noidung: "11. Mức độ tham gia tích cực của học sinh trong trình bày, trao đổi, thảo luận về kết quả thực hiện nhiệm vụ học tập.", diem_max: 2.0 },
+                    { noidung: "12. Mức độ đúng đắn, chính xác, phù hợp của các kết quả thực hiện nhiệm vụ học tập của học sinh.", diem_max: 1.0 }
                 ]
             }
         ];
@@ -341,6 +376,7 @@
             newRow.querySelector('.remove-activity-btn').addEventListener('click', () => newRow.remove());
         }
         
+        // ĐÃ CẬP NHẬT HÀM NÀY ĐỂ GIỐNG PDF
         function populateEvaluationTable() {
             const table = elements.evaluationTableBody.parentElement;
             let thead = table.querySelector('thead');
@@ -348,12 +384,11 @@
                 thead = document.createElement('thead');
                 table.prepend(thead);
             }
+            // ĐÃ THAY ĐỔI CÁC CỘT
             thead.innerHTML = `
                 <tr class="bg-gray-50">
-                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/4">Nội dung</th>
-                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/3">Yêu cầu cần đạt</th>
+                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-2/3">Nội dung (Tiêu chí)</th>
                     <th class="py-3 px-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Điểm tối đa</th>
-                    <th class="py-3 px-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider w-1/4">Ghi chú/Minh chứng</th>
                     <th class="py-3 px-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Điểm đạt</th>
                 </tr>`;
 
@@ -362,27 +397,18 @@
                 const totalPoints = category.items.reduce((sum, item) => sum + item.diem_max, 0);
                 elements.evaluationTableBody.innerHTML += `
                     <tr class="bg-gray-100 font-bold">
-                        <td colspan="5" class="py-2 px-4 text-gray-700">${category.category} (${totalPoints} điểm)</td>
+                        <!-- ĐÃ THAY ĐỔI COLSPAN -->
+                        <td colspan="3" class="py-2 px-4 text-gray-700">${category.category} (${totalPoints.toFixed(1)} điểm)</td>
                     </tr>
                 `;
                 category.items.forEach(item => {
+                    // ĐÃ THAY ĐỔI CÁC CỘT
                     elements.evaluationTableBody.innerHTML += `
                         <tr>
                             <td class="py-2 px-4 border-b">${item.noidung}</td>
-                            <td class="py-2 px-4 border-b">${item.yeucau}</td>
-                            <td class="py-2 px-4 border-b text-center">${item.diem_max}</td>
-                            <td class="py-2 px-4 border-b">
-                                <div class="relative">
-                                    <textarea rows="2" class="w-full p-1 border border-gray-300 rounded-md note-input pr-8"></textarea>
-                                    <button title="AI Gợi ý minh chứng" class="ai-note-suggest-btn absolute top-1 right-1 bg-blue-500 text-white rounded-full p-1 w-6 h-6 flex items-center justify-center hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </td>
+                            <td class="py-2 px-4 border-b text-center">${item.diem_max.toFixed(1)}</td>
                             <td class="py-2 px-4 border-b text-center">
-                                <input type="number" class="score-input w-20 p-1 text-center border border-gray-300 rounded-md" min="0" max="${item.diem_max}" data-max="${item.diem_max}" value="0">
+                                <input type="number" class="score-input w-20 p-1 text-center border border-gray-300 rounded-md" min="0" max="${item.diem_max}" data-max="${item.diem_max}" value="0" step="0.25">
                             </td>
                         </tr>
                     `;
@@ -401,19 +427,25 @@
                 const max = parseFloat(input.dataset.max);
                 if (value > max) value = max;
                 if (value < 0) value = 0;
-                input.value = value;
                 totalScore += value;
             });
             
-            elements.totalScoreEl.textContent = `${totalScore}/${maxScore}`;
+            elements.totalScoreEl.textContent = `${totalScore.toFixed(2)}/${maxScore.toFixed(2)}`;
             
-            const percentage = (totalScore / maxScore) * 100;
-            let ratingText = "Chưa đạt";
+            let ratingText = "Không đạt";
             let ratingClass = "text-red-600";
 
-            if (percentage >= 90) { ratingText = "Tốt"; ratingClass = "text-green-600"; }
-            else if (percentage >= 70) { ratingText = "Khá"; ratingClass = "text-blue-600"; }
-            else if (percentage >= 50) { ratingText = "Đạt"; ratingClass = "text-yellow-600"; }
+            // XẾP LOẠI THEO CV 5512 (Thang 20)
+            if (totalScore >= 18) { 
+                ratingText = "Giỏi"; 
+                ratingClass = "text-green-600"; 
+            } else if (totalScore >= 13.5) { 
+                ratingText = "Khá"; 
+                ratingClass = "text-blue-600"; 
+            } else if (totalScore >= 10) { 
+                ratingText = "Trung bình"; 
+                ratingClass = "text-yellow-600"; 
+            }
             
             elements.ratingEl.textContent = ratingText;
             elements.ratingEl.className = `py-3 px-4 text-center text-lg font-bold ${ratingClass}`;
@@ -437,90 +469,66 @@
             button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang xử lý...</span>';
             button.disabled = true;
 
-            const prompt = `Với vai trò là một chuyên gia giáo dục, hãy nhận xét ngắn gọn về hoạt động dạy học sau:\n- **Hoạt động của Thầy và Trò:** ${activity}\n- **Nội dung chính:** ${content}\n\n**Nhận xét:**`;
+            const prompt = `Với vai trò là một chuyên gia giáo dục, hãy nhận xét **cực kỳ ngắn gọn (tối đa 2-3 câu)** về hoạt động dạy học sau, tập trung vào ưu/nhược điểm chính:\n- **Hoạt động của Thầy và Trò:** ${activity}\n- **Nội dung chính:** ${content}\n\n**Nhận xét (ngắn gọn):**`;
 
             reviewTextarea.value = await callGeminiApi(prompt);
             button.innerHTML = originalButtonContent;
             button.disabled = false;
         }
 
-        async function handleAiNoteSuggest(event) {
-            const button = event.target.closest('.ai-note-suggest-btn');
-            if (!button) return;
-    
-            const row = button.closest('tr');
-            const noteTextarea = row.querySelector('.note-input');
-    
-            const noidung = row.cells[0].textContent;
-            const yeucau = row.cells[1].textContent;
-            const score = row.querySelector('.score-input').value;
-            const maxScore = row.querySelector('.score-input').dataset.max;
-    
-            let allActivitiesText = "Không có hoạt động nào được nhập.";
-            const activityRows = document.querySelectorAll('.activity-row');
-            if (activityRows.length > 0 && Array.from(activityRows).some(r => r.querySelector('.teacher-student-activity').value)) {
-                allActivitiesText = Array.from(activityRows).map(activityRow => {
-                    const title = activityRow.querySelector('.activity-title').value;
-                    const activity = activityRow.querySelector('.teacher-student-activity').value;
-                    const content = activityRow.querySelector('.content').value;
-                    return `- ${title}\n  Hoạt động Thầy/Trò: ${activity || '(trống)'}\n  Nội dung: ${content || '(trống)'}`;
-                }).join('\n\n');
-            } else {
-                 noteTextarea.value = "Vui lòng nhập thông tin các hoạt động dạy học trước.";
-                 return;
-            }
-    
-            const prompt = `Dựa trên các hoạt động của tiết học dưới đây, hãy đưa ra một ghi chú hoặc minh chứng ngắn gọn (khoảng 1-2 câu) để giải thích cho số điểm là ${score}/${maxScore}, đối với tiêu chí sau:\n- **Tiêu chí:** "${noidung}"\n- **Yêu cầu cần đạt:** "${yeucau}"\n\n**Bối cảnh các hoạt động trong tiết học:**\n${allActivitiesText}\n\n**Ghi chú/Minh chứng gợi ý:**`;
-    
-            const originalButtonContent = button.innerHTML;
-            button.innerHTML = '<div class="loader inline-loader"></div>';
-            button.disabled = true;
-    
-            noteTextarea.value = await callGeminiApi(prompt);
-            
-            button.innerHTML = originalButtonContent;
-            button.disabled = false;
-        }
+        // ĐÃ XOÁ HÀM handleAiNoteSuggest VÀ handleAiOverallReview
 
-        async function handleAiOverallReview() {
-             const button = elements.aiOverallReviewBtn;
+        // ĐÃ THÊM HÀM MỚI ĐỂ XỬ LÝ NÚT GỢI Ý CỦA NGƯỜI DỰ GIỜ
+        async function handleAiAttendeeReview() {
+             const button = elements.aiAttendeeReviewBtn;
              const originalButtonContent = button.innerHTML;
              button.innerHTML = '<div class="loader"></div><span class="ml-2">Đang tổng hợp...</span>';
              button.disabled = true;
              
-             let promptData = `Với vai trò là một chuyên gia giáo dục, dựa trên toàn bộ thông tin về tiết dạy dưới đây, hãy viết một nhận xét tổng thể bao gồm 3 mục rõ ràng: "1. Ưu điểm", "2. Hạn chế", và "3. Góp ý".\n\n**THÔNG TIN TIẾT DẠY:**\n`;
+             let promptData = `Với vai trò là một chuyên gia giáo dục, dựa trên toàn bộ thông tin về tiết dạy dưới đây, hãy viết một nhận xét tổng thể cho "Người dự giờ" (người đánh giá).\n\n**THÔNG TIN TIẾT DẠY:**\n`;
              
-             // Activities
-             promptData += "\n**TIẾN TRÌNH HOẠT ĐỘNG:**\n";
-             document.querySelectorAll('.activity-row').forEach(row => {
-                 promptData += `- **${row.querySelector('.activity-title').value}:**\n  - Hoạt động Thầy/Trò: ${row.querySelector('.teacher-student-activity').value}\n  - Nội dung: ${row.querySelector('.content').value}\n  - Nhận xét đã có: ${row.querySelector('.review').value}\n`;
-             });
+             // 1. Thu thập dữ liệu từ "Phần ghi nhận"
+             promptData += "\n**PHẦN GHI NHẬN HOẠT ĐỘNG:**\n";
+             const activityRows = document.querySelectorAll('.activity-row');
+             if (activityRows.length > 0 && Array.from(activityRows).some(r => r.querySelector('.teacher-student-activity').value)) {
+                document.querySelectorAll('.activity-row').forEach(row => {
+                    promptData += `- **${row.querySelector('.activity-title').value}:**\n  - Hoạt động Thầy/Trò: ${row.querySelector('.teacher-student-activity').value}\n  - Nội dung: ${row.querySelector('.content').value}\n  - Nhận xét (nếu có): ${row.querySelector('.review').value}\n`;
+                });
+             } else {
+                 promptData += "(Không có thông tin chi tiết về hoạt động được ghi nhận.)\n";
+             }
+             
 
-            // Evaluation
-            promptData += "\n**BẢNG ĐÁNH GIÁ:**\n";
+            // 2. Thu thập dữ liệu từ "Tiêu chí đánh giá"
+            promptData += "\n**II. TIÊU CHÍ ĐÁNH GIÁ (Thang 20 điểm):**\n";
             document.querySelectorAll('#evaluation-table-body tr').forEach(row => {
-                if (row.cells.length > 1) {
+                if (row.cells.length > 1) { // Bỏ qua hàng tiêu đề
                     const content = row.cells[0].textContent;
-                    const note = row.cells[3].querySelector('textarea')?.value || 'Không';
-                    const score = row.cells[4].querySelector('input')?.value || '0';
-                    promptData += `- ${content}: ${score} điểm (Ghi chú: ${note})\n`;
-                } else {
+                    const score = row.cells[2].querySelector('input')?.value || '0';
+                    const maxScore = row.cells[1].textContent;
+                    promptData += `- ${content}: ${score}/${maxScore} điểm\n`;
+                } else if (row.cells.length === 1) { // Hàng tên danh mục
                     promptData += `\n**${row.textContent}**\n`;
                 }
             });
-            promptData += `\n- **Tổng điểm:** ${elements.totalScoreEl.textContent}\n- **Xếp loại:** ${elements.ratingEl.textContent}\n\n**BÁO CÁO TỔNG HỢP (Ưu điểm, Hạn chế, Góp ý):**`;
+            promptData += `\n- **Tổng điểm:** ${elements.totalScoreEl.textContent}\n- **Xếp loại:** ${elements.ratingEl.textContent}\n\n`;
             
-            const result = await callGeminiApi(promptData);
-            const strengthsMatch = result.match(/(?:1. Ưu điểm|Ưu điểm):([\s\S]*?)(?:2. Hạn chế|Hạn chế)/i);
-            const weaknessesMatch = result.match(/(?:2. Hạn chế|Hạn chế):([\s\S]*?)(?:3. Góp ý|Góp ý)/i);
-            const suggestionsMatch = result.match(/(?:3. Góp ý|Góp ý):([\s\S]*)/i);
+            // 3. Yêu cầu cuối cùng
+            promptData += "Dựa trên toàn bộ thông tin trên, hãy viết nhận xét cho 'Người dự giờ' (người đánh giá) bao gồm 2 mục rõ ràng: 'a) Những thành công' và 'b) Những hạn chế'.";
 
-            elements.strengthsEl.value = strengthsMatch ? strengthsMatch[1].trim() : "";
-            elements.weaknessesEl.value = weaknessesMatch ? weaknessesMatch[1].trim() : "";
-            elements.suggestionsEl.value = suggestionsMatch ? suggestionsMatch[1].trim() : "";
+            const result = await callGeminiApi(promptData);
             
-            if (!strengthsMatch && !weaknessesMatch && !suggestionsMatch) {
-                elements.suggestionsEl.value = result; // Put full result if parsing fails
+            // 4. Phân tích kết quả và điền vào ô
+            const successMatch = result.match(/(?:a\)\s*Những thành công|Những thành công):([\s\S]*?)(?:b\)\s*Những hạn chế|Những hạn chế)/i);
+            const weaknessMatch = result.match(/(?:b\)\s*Những hạn chế|Những hạn chế):([\s\S]*)/i);
+
+            elements.ndThanhCong.value = successMatch ? successMatch[1].trim() : "";
+            elements.ndHanche.value = weaknessMatch ? weaknessMatch[1].trim() : "";
+            
+            if (!successMatch && !weaknessMatch) {
+                // Nếu AI không trả về đúng định dạng
+                elements.ndThanhCong.value = "AI không thể phân tích cú pháp. Dữ liệu thô:\n" + result;
+                elements.ndHanche.value = "";
             }
 
             button.innerHTML = originalButtonContent;
@@ -687,14 +695,22 @@
             return fullText;
         }
 
+        // --- ĐÃ VIẾT LẠI HOÀN TOÀN HÀM exportToDocx ĐỂ GIỐNG HỆT FILE PDF ---
         function exportToDocx() {
-            const { Document, Packer, Paragraph, Table, TableCell, TableRow, TextRun, AlignmentType, WidthType, BorderStyle } = docx;
+            const { Document, Packer, Paragraph, Table, TableCell, TableRow, TextRun, AlignmentType, WidthType, BorderStyle, VerticalMerge } = docx;
 
             // --- Helper Functions ---
             const createBoldText = (text) => new TextRun({ text, bold: true, font: "Times New Roman", size: 24 });
             const createNormalText = (text) => new TextRun({ text, font: "Times New Roman", size: 24 });
+            const createItalicText = (text) => new TextRun({ text, italics: true, font: "Times New Roman", size: 24 });
             const createMultiLine = (text) => (text || '').split('\n').map(line => new Paragraph({ children: [createNormalText(line)]}));
             const noBorders = { top: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, bottom: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, left: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" }, right: { style: BorderStyle.NONE, size: 0, color: "FFFFFF" } };
+            const fullBorders = { 
+                top: { style: BorderStyle.SINGLE, size: 1, color: "000000" }, 
+                bottom: { style: BorderStyle.SINGLE, size: 1, color: "000000" }, 
+                left: { style: BorderStyle.SINGLE, size: 1, color: "000000" }, 
+                right: { style: BorderStyle.SINGLE, size: 1, color: "000000" } 
+            };
 
             // --- Gather Data from UI ---
             const data = {
@@ -710,7 +726,7 @@
                 attendeeUnit: document.getElementById('attendee-unit').value,
             };
 
-            // --- 1. Header Section ---
+            // --- 1. Header Section (Giống PDF) ---
             const headerTable = new Table({
                 width: { size: 100, type: WidthType.PERCENTAGE },
                 rows: [ new TableRow({
@@ -727,105 +743,165 @@
                 })],
             });
 
-            // --- 2. General Info Section ---
+            // --- 2. Title & General Info (I.) (Giống PDF) ---
             const formattedDate = data.date ? new Date(data.date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '.../.../...';
             const generalInfo = [
                 new Paragraph({ text: " " }),
-                new Paragraph({ children: [createBoldText("PHIẾU DỰ GIỜ GIÁO VIÊN TRUNG HỌC")], alignment: AlignmentType.CENTER }),
+                new Paragraph({ children: [createBoldText("PHIẾU ĐÁNH GIÁ BÀI DẠY")], alignment: AlignmentType.CENTER }),
+                new Paragraph({ children: [createItalicText("(Theo Công văn số 5512/BGDĐT-GDTrH ngày 18/12/2020")], alignment: AlignmentType.CENTER }),
+                new Paragraph({ children: [createItalicText("của Bộ Giáo dục và Đào tạo)")], alignment: AlignmentType.CENTER }),
                 new Paragraph({ text: " " }),
-                new Paragraph({ children: [createBoldText("Họ và tên giáo viên: "), createNormalText(data.teacherName)] }),
-                new Paragraph({ children: [createBoldText("Tên bài dạy (chủ đề): "), createNormalText(data.lessonName)] }),
+                new Paragraph({ children: [createBoldText("I.")] }), // Mục I.
+                new Paragraph({ children: [createNormalText("Tên bài dạy: "), createNormalText(data.lessonName), createNormalText(" ".repeat(20)), createNormalText("; Tiết PPCT: "), createNormalText(data.period || '...')]}),
                 new Paragraph({ children: [
-                    createBoldText("Môn: "), createNormalText(data.subject),
-                    createBoldText("  Lớp: "), createNormalText(data.className),
-                    createBoldText("  Tiết: "), createNormalText(data.period),
-                    createBoldText("  Ngày: "), createNormalText(formattedDate),
+                    createNormalText("Môn học/Hoạt động giáo dục: "), createNormalText(data.subject),
+                    createNormalText(" ".repeat(10)), createNormalText("Lớp: "), createNormalText(data.className),
+                    createNormalText(" ".repeat(10)), createNormalText("Ngày: "), createNormalText(formattedDate),
                 ]}),
-                new Paragraph({ children: [createBoldText("Họ và tên người dự: "), createNormalText(data.attendeeName)] }),
-                new Paragraph({ children: [createBoldText("Đơn vị công tác: "), createNormalText(data.attendeeUnit)] }),
+                new Paragraph({ children: [createNormalText("Họ và tên giáo viên thực hiện: "), createNormalText(data.teacherName)] }),
+                new Paragraph({ children: [createNormalText("Họ và tên giáo viên dự: "), createNormalText(data.attendeeName)] }),
                 new Paragraph({ text: " " }),
             ];
 
-            // --- 3. Activities Table ---
+            // --- 3. Activities Table (Phần ghi nhận) (Giống PDF) ---
             const activityTableRows = Array.from(document.querySelectorAll('.activity-row')).flatMap((row) => {
                 const title = row.querySelector('.activity-title').value;
                 const activity = row.querySelector('.teacher-student-activity').value;
                 const content = row.querySelector('.content').value;
                 const review = row.querySelector('.review').value;
+                
+                // Tách Hoạt động Thầy/Trò và gộp với title
+                const teacherStudentContent = [new Paragraph({ children: [createBoldText(title)] }), ...createMultiLine(activity)];
+                
                 return [ new TableRow({ children: [
-                    new TableCell({ children: [new Paragraph({ children: [createBoldText(title)] }), ...createMultiLine(activity)] }),
-                    new TableCell({ children: createMultiLine(content) }),
-                    new TableCell({ children: createMultiLine(review) }),
+                    new TableCell({ children: teacherStudentContent, borders: fullBorders }),
+                    new TableCell({ children: createMultiLine(content), borders: fullBorders }),
+                    new TableCell({ children: createMultiLine(review), borders: fullBorders }),
                 ]})];
             });
             const activitiesTable = new Table({
                 width: { size: 100, type: WidthType.PERCENTAGE },
+                columnWidths: [40, 30, 30],
                 rows: [
                     new TableRow({ tableHeader: true, children: [
-                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Hoạt động của Thầy và Trò")] })] }),
-                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Nội dung")] })] }),
-                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Nhận xét")] })] }),
+                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Hoạt động GV và HS")] })], borders: fullBorders }),
+                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Nội dung")] })], borders: fullBorders }),
+                        new TableCell({ children: [new Paragraph({ children: [createBoldText("Nhận xét")] })], borders: fullBorders }),
                     ]}),
                     ...activityTableRows,
                 ]
             });
 
-            // --- 4. Evaluation Table ---
+            // --- 4. Evaluation Table (II. Tiêu chí đánh giá) (Giống PDF) ---
             const evalTableRows = [];
-            document.querySelectorAll('#evaluation-table-body tr').forEach(row => {
-                 if (row.cells.length === 1) { // Category Row
-                     evalTableRows.push(new TableRow({ children: [new TableCell({ children: [new Paragraph({children: [createBoldText(row.cells[0].textContent)]})], columnSpan: 5 })] }));
-                 } else {
-                     const cells = Array.from(row.cells);
-                     evalTableRows.push(new TableRow({ children: [
-                         new TableCell({ children: createMultiLine(cells[0].textContent) }),
-                         new TableCell({ children: createMultiLine(cells[1].textContent) }),
-                         new TableCell({ children: [new Paragraph({ children: [createNormalText(cells[2].textContent)], alignment: AlignmentType.CENTER })] }),
-                         new TableCell({ children: createMultiLine(cells[3].querySelector('textarea').value) }),
-                         new TableCell({ children: [new Paragraph({ children: [createNormalText(cells[4].querySelector('input').value)], alignment: AlignmentType.CENTER })] }),
-                     ]}));
-                 }
+            const allScoreInputs = Array.from(document.querySelectorAll('.score-input'));
+            let scoreInputIndex = 0;
+
+            // Header Row
+            evalTableRows.push(new TableRow({ tableHeader: true, children: [
+                new TableCell({ children: [new Paragraph({children: [createBoldText("Nội dung")], alignment: AlignmentType.CENTER})], borders: fullBorders }),
+                new TableCell({ children: [new Paragraph({children: [createBoldText("STT")], alignment: AlignmentType.CENTER})], borders: fullBorders }),
+                new TableCell({ children: [new Paragraph({children: [createBoldText("Tiêu chí")], alignment: AlignmentType.CENTER})], borders: fullBorders }),
+                new TableCell({ children: [new Paragraph({children: [createBoldText("Điểm tối đa")], alignment: AlignmentType.CENTER})], borders: fullBorders }),
+                new TableCell({ children: [new Paragraph({children: [createBoldText("Điểm đánh giá")], alignment: AlignmentType.CENTER})], borders: fullBorders }),
+            ]}));
+
+            // Data Rows with Merging
+            evaluationCriteria.forEach(category => {
+                const numItems = category.items.length;
+                category.items.forEach((item, index) => {
+                    const sttMatch = item.noidung.match(/^(\d+)\./); // Lấy số STT
+                    const stt = sttMatch ? sttMatch[1] : '';
+                    const tieuchi = sttMatch ? item.noidung.substring(sttMatch[0].length).trim() : item.noidung;
+                    
+                    const diemMax = item.diem_max.toFixed(2);
+                    const diemDat = allScoreInputs[scoreInputIndex] ? allScoreInputs[scoreInputIndex].value : '0';
+                    scoreInputIndex++;
+
+                    const rowCells = [
+                        new TableCell({ // STT
+                            children: [new Paragraph({ text: stt, alignment: AlignmentType.CENTER })],
+                            borders: fullBorders,
+                        }),
+                        new TableCell({ // Tiêu chí
+                            children: [new Paragraph(tieuchi)],
+                            borders: fullBorders,
+                        }),
+                        new TableCell({ // Điểm tối đa
+                            children: [new Paragraph({ text: diemMax, alignment: AlignmentType.CENTER })],
+                            borders: fullBorders,
+                        }),
+                        new TableCell({ // Điểm đánh giá
+                            children: [new Paragraph({ text: diemDat, alignment: AlignmentType.CENTER })],
+                            borders: fullBorders,
+                        }),
+                    ];
+
+                    if (index === 0) {
+                        // Hàng đầu tiên, bắt đầu gộp ô "Nội dung"
+                        rowCells.unshift(new TableCell({
+                            children: [new Paragraph({children: [createBoldText(category.category)]})],
+                            verticalMerge: VerticalMerge.RESTART,
+                            borders: fullBorders,
+                        }));
+                    } else {
+                        // Các hàng tiếp theo, tiếp tục gộp
+                        rowCells.unshift(new TableCell({
+                            children: [new Paragraph("")], // Phải có 1 paragraph
+                            verticalMerge: VerticalMerge.CONTINUE,
+                            borders: fullBorders,
+                        }));
+                    }
+                    evalTableRows.push(new TableRow({ children: rowCells }));
+                });
             });
+            
+            // Total Row
+            const totalScore = elements.totalScoreEl.textContent.split('/')[0];
+            const maxScore = elements.totalScoreEl.textContent.split('/')[1];
+            evalTableRows.push(new TableRow({ children: [
+                new TableCell({ children: [new Paragraph({children: [createBoldText("Tổng cộng")], alignment: AlignmentType.CENTER })], columnSpan: 3, borders: fullBorders }),
+                new TableCell({ children: [new Paragraph({children: [createBoldText(maxScore)], alignment: AlignmentType.CENTER })], borders: fullBorders }),
+                new TableCell({ children: [new Paragraph({children: [createBoldText(totalScore)], alignment: AlignmentType.CENTER })], borders: fullBorders }),
+            ]}));
+
             const evaluationTable = new Table({
                 width: { size: 100, type: WidthType.PERCENTAGE },
-                rows: [
-                    new TableRow({ tableHeader: true, children: [
-                        new TableCell({ children: [new Paragraph({children: [createBoldText("Nội dung")]})] }),
-                        new TableCell({ children: [new Paragraph({children: [createBoldText("Yêu cầu cần đạt")]})] }),
-                        new TableCell({ children: [new Paragraph({children: [createBoldText("Điểm tối đa")], alignment: AlignmentType.CENTER})] }),
-                        new TableCell({ children: [new Paragraph({children: [createBoldText("Ghi chú/Minh chứng")]})] }),
-                        new TableCell({ children: [new Paragraph({children: [createBoldText("Điểm đạt")], alignment: AlignmentType.CENTER})] }),
-                    ]}),
-                    ...evalTableRows,
-                    new TableRow({ children: [
-                        new TableCell({ children: [new Paragraph({children: [createBoldText("Tổng cộng")], alignment: AlignmentType.RIGHT })], columnSpan: 4 }),
-                        new TableCell({ children: [new Paragraph({children: [createBoldText(elements.totalScoreEl.textContent.split('/')[0])], alignment: AlignmentType.CENTER })] }),
-                    ]}),
-                ]
+                columnWidths: [20, 5, 50, 10, 15],
+                rows: evalTableRows
             });
 
-            // --- 5. Footer and Signature ---
-             const today = new Date();
-             const location = data.schoolUnit.split(' ').pop() || '...,';
-             const signDate = `${location} ngày ${today.getDate()} tháng ${today.getMonth() + 1} năm ${today.getFullYear()}`;
-             const signatureTable = new Table({
-                width: { size: 100, type: WidthType.PERCENTAGE },
-                rows: [ new TableRow({ children: [
-                    new TableCell({ borders: noBorders, children: [
-                        new Paragraph({ children: [createBoldText("Giáo viên dạy")], alignment: AlignmentType.CENTER }),
-                        new Paragraph({ children: [new TextRun({text: "(Ký, ghi rõ họ tên)", italics: true, font: "Times New Roman", size: 24})], alignment: AlignmentType.CENTER }),
-                        new Paragraph({text: " "}), new Paragraph({text: " "}), new Paragraph({text: " "}),
-                        new Paragraph({ children: [createBoldText(data.teacherName)], alignment: AlignmentType.CENTER }),
-                    ]}),
-                    new TableCell({ borders: noBorders, children: [
-                        new Paragraph({ children: [new TextRun({ text: signDate, italics: true, font: "Times New Roman", size: 24 })], alignment: AlignmentType.CENTER }),
-                        new Paragraph({ children: [createBoldText("Người dự")], alignment: AlignmentType.CENTER }),
-                        new Paragraph({ children: [new TextRun({text: "(Ký, ghi rõ họ tên)", italics: true, font: "Times New Roman", size: 24})], alignment: AlignmentType.CENTER }),
-                        new Paragraph({text: " "}), new Paragraph({text: " "}), new Paragraph({text: " "}),
-                        new Paragraph({ children: [createBoldText(data.attendeeName)], alignment: AlignmentType.CENTER }),
-                    ]})
-                ]})]
-             });
+            // --- 5. Feedback Section (III. Nhận xét, đánh giá) (Giống PDF) ---
+            const feedbackSection = [
+                new Paragraph({ text: " " }),
+                new Paragraph({ children: [createBoldText("III. Nhận xét, đánh giá")] }),
+                new Paragraph({ children: [createBoldText("1. Giáo viên dạy tự nhận xét")] }),
+                new Paragraph({ children: [createNormalText("a) Những thành công của giờ dạy (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):")] }),
+                ...createMultiLine(document.getElementById('gv-thanhcong').value),
+                new Paragraph({ children: [createNormalText("b) Những hạn chế của tiết học cần lưu ý (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):")] }),
+                ...createMultiLine(document.getElementById('gv-hanche').value),
+                new Paragraph({ text: " " }),
+                new Paragraph({ children: [createBoldText("2. Người dự giờ nhận xét")] }),
+                new Paragraph({ children: [createNormalText("a) Những thành công của giờ dạy (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):")] }),
+                ...createMultiLine(document.getElementById('nd-thanhcong').value),
+                new Paragraph({ children: [createNormalText("b) Những hạn chế của tiết học cần lưu ý (kế hoạch và tài liệu dạy học, tổ chức hoạt động học cho học sinh, hoạt động học của học sinh,...):")] }),
+                ...createMultiLine(document.getElementById('nd-hanche').value),
+            ];
+
+            // --- 6. Rating & Signature (Giống PDF) ---
+            const ratingText = elements.ratingEl.textContent;
+            const signDateText = `..., ngày ${formattedDate.split('/')[0]} tháng ${formattedDate.split('/')[1]} năm ${formattedDate.split('/')[2]}`;
+            
+            const signatureSection = [
+                new Paragraph({ text: " " }),
+                new Paragraph({ children: [createBoldText(`Xếp loại bài dạy: ${ratingText}`)] }),
+                new Paragraph({ text: " " }), new Paragraph({ text: " " }),
+                new Paragraph({ children: [createItalicText(signDateText)], alignment: AlignmentType.RIGHT }),
+                new Paragraph({ children: [createBoldText("Người đánh giá")], alignment: AlignmentType.RIGHT }),
+                new Paragraph({ children: [createItalicText("(Kí và ghi họ tên)")], alignment: AlignmentType.RIGHT }),
+                new Paragraph({ text: " " }), new Paragraph({ text: " " }), new Paragraph({ text: " " }), new Paragraph({ text: " " }),
+                new Paragraph({ children: [createBoldText(data.attendeeName)], alignment: AlignmentType.RIGHT }),
+            ];
 
             // --- Assemble Document ---
             const doc = new Document({
@@ -833,33 +909,20 @@
                     children: [
                         headerTable,
                         ...generalInfo,
-                        new Paragraph({ children: [createBoldText("B. TIẾN TRÌNH HOẠT ĐỘNG DẠY VÀ HỌC")] }),
+                        new Paragraph({ children: [createBoldText("Phần ghi nhận")] }),
                         activitiesTable,
                         new Paragraph({ text: " " }),
-                        new Paragraph({ children: [createBoldText("C. ĐÁNH GIÁ TIẾT HỌC")] }),
+                        new Paragraph({ children: [createBoldText("II. Tiêu chí đánh giá")] }),
                         evaluationTable,
-                        new Paragraph({ text: " " }),
-                        new Paragraph({ children: [
-                            createBoldText("Tổng điểm: "), createBoldText(elements.totalScoreEl.textContent),
-                            createBoldText("  Xếp loại: "), createBoldText(elements.ratingEl.textContent),
-                        ], alignment: AlignmentType.RIGHT }),
-                        new Paragraph({ text: " " }),
-                        new Paragraph({ children: [createBoldText("D. NHẬN XÉT CHUNG VÀ GÓP Ý")] }),
-                        new Paragraph({ children: [createBoldText("1. Ưu điểm:")] }),
-                        ...createMultiLine(elements.strengthsEl.value),
-                        new Paragraph({ children: [createBoldText("2. Hạn chế:")] }),
-                        ...createMultiLine(elements.weaknessesEl.value),
-                        new Paragraph({ children: [createBoldText("3. Góp ý:")] }),
-                        ...createMultiLine(elements.suggestionsEl.value),
-                        new Paragraph({ text: " " }), new Paragraph({ text: " " }),
-                        signatureTable,
+                        ...feedbackSection,
+                        ...signatureSection
                     ],
                 }],
             });
 
             // --- Generate and Download DOCX ---
             Packer.toBlob(doc).then(blob => {
-                const fileName = `Phieu-Du-Gio-${data.teacherName.replace(/\s/g, '_') || 'GiaoVien'}.docx`;
+                const fileName = `Phieu-Danh-Gia-5512-${data.teacherName.replace(/\s/g, '_') || 'GiaoVien'}.docx`;
                 saveAs(blob, fileName);
             });
         }
@@ -875,16 +938,13 @@
             }
         });
         
-        elements.evaluationTableBody.addEventListener('click', (event) => {
-            if (event.target.closest('.ai-note-suggest-btn')) {
-                handleAiNoteSuggest(event);
-            }
-        });
-
-        elements.aiOverallReviewBtn.addEventListener('click', handleAiOverallReview);
+        // ĐÃ XOÁ EVENT LISTENER CỦA CÁC NÚT AI CŨ
         elements.exportDocxBtn.addEventListener('click', exportToDocx);
         elements.extractPptBtn.addEventListener('click', handleExtractPpt);
         elements.aiOverviewPptBtn.addEventListener('click', handleAiPptOverview);
+        
+        // ĐÃ THÊM EVENT LISTENER CHO NÚT MỚI
+        elements.aiAttendeeReviewBtn.addEventListener('click', handleAiAttendeeReview);
 
         // --- Initial setup ---
         addActivityRow();
@@ -897,4 +957,5 @@
 </body>
 
 </html>
+
 
